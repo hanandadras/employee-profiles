@@ -7,8 +7,8 @@ const generateTeam = (team) => {
           <h6 class="card-subtitle mb-2 text-muted">${manager.getRole()}</h6>
          <div class ="card-body" 
          <ul> 
-         <li>${manager.getId()}</li>
-         <li> ${manager.getEmail()}</li>
+         <li>${manager.id}</li>
+         <li> ${manager.email}</li>
          <li>${manager.getOfficeNumber()} </li>
          </ul>
          </div>
@@ -25,8 +25,8 @@ const generateTeam = (team) => {
           <h6 class="card-subtitle mb-2 text-muted">${engineer.getRole()}</h6>
          <div class ="card-body" 
          <ul> 
-         <li>${engineer.getId()}</li>
-         <li> ${engineer.getEmail()}</li>
+         <li>${engineer.id}</li>
+         <li> ${engineer.email}</li>
          <li>${engineer.getGithub()} </li>
 
          </ul>
@@ -44,9 +44,9 @@ const generateTeam = (team) => {
           <h6 class="card-subtitle mb-2 text-muted">${intern.getRole()}</h6>
          <div class ="card-body" 
          <ul> 
-         <li>${intern.getId()}</li>
-         <li> ${intern.getEmail()}</li>
-         <li>${intern.getOfficeNumber()} </li>
+         <li>${intern.id}</li>
+         <li> ${intern.email}</li>
+         <li>${intern.getSchool()} </li>
          </ul>
          </div>
         </div>
@@ -65,7 +65,11 @@ const generateTeam = (team) => {
         .map(intern => generateIntern(intern)))
 return html.join("")
 }
-module.exports = team=>{
+
+
+
+
+const createHtml = (team) => {
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -97,4 +101,7 @@ module.exports = team=>{
 </html>
     `
 }
+
+module.exports = createHtml;
+
 

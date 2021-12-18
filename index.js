@@ -4,9 +4,10 @@ const fs = require("fs");
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const generateSite = require('./src/generate-site.js.js');
+const createHtml = require('./src/generateteam.js');
 const path = require("path");
 const teamMembers = [];
+const outputPath = path.resolve(__dirname, "team.html");
 
 const promptManager = () => {
     console.log(`
@@ -86,14 +87,14 @@ const promptMenu = () => {
             type: 'list',
             name: 'menu',
             message: 'Please select an option:',
-            options: ['engineer', 'intern', 'build team']
+            choices: ['engineer', 'intern', 'build team']
         }])
         .then(userChoice => {
             switch (userChoice.menu) {
-                case " add engineer":
+                case "engineer":
                     promptEngineer()
                     break
-                case "add intern":
+                case "intern":
                     promptIntern()
                     break
                 default: buildTeam()
@@ -119,6 +120,19 @@ const promptEngineer = () => {
                     return true;
                 } else {
                     console.log('Enter Engineer name');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'employeeID',
+            message: "What is the Engineer employeeID?",
+            validate: engineerId => {
+                if (engineerId) {
+                    return true;
+                } else {
+                    console.log('Enter Engineer id');
                     return false;
                 }
             }
@@ -152,7 +166,7 @@ const promptEngineer = () => {
 
     ]).then(answers => {
         console.log(answers);
-        const engineer = new Engineer(answers.name, answers.employeeId, answers.email, answers.officeNumber)
+        const engineer = new Engineer(answers.name, answers.employeeID, answers.email, answers.github)
         teamMembers.push(engineer);
         promptMenu();
 
@@ -201,7 +215,7 @@ const promptIntern = () => {
                 if (InternEmployeeId) {
                     return true;
                 } else {
-                    console.log('Enter Intern Email');
+                    console.log('Enter Intern employee id');
                     return false;
                 }
             }
@@ -222,7 +236,7 @@ const promptIntern = () => {
 
     ]).then(answers => {
         console.log(answers);
-        const intern = new Intern(answers.name, answers.employeeId, answers.email, answers.school)
+        const intern = new Intern(answers.name, answers.employeeID, answers.email, answers.school)
         teamMembers.push(intern);
         promptMenu();
 
@@ -236,7 +250,7 @@ const buildTeam = () => {
     ==============
     `);
 
-    fs.writeFileSync(outputPath, generateSite(teamMembers), "utf-8");
+    fs.writeFileSync(outputPath, createHtml(teamMembers), "utf-8");
 
 }
 promptManager();
