@@ -5,7 +5,7 @@ const generateTeam = (team) => {
         <div class="card-body">
           <h5 class="card-title">${manager.getName()}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${manager.getRole()}</h6>
-         <div class ="card-body" 
+         <div class ="card-body">
          <ul> 
          <li>${manager.id}</li>
          <li> ${manager.email}</li>
@@ -23,7 +23,7 @@ const generateTeam = (team) => {
         <div class="card-body">
           <h5 class="card-title">${engineer.getName()}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${engineer.getRole()}</h6>
-         <div class ="card-body" 
+         <div class ="card-body"> 
          <ul> 
          <li>${engineer.id}</li>
          <li> ${engineer.email}</li>
@@ -42,7 +42,7 @@ const generateTeam = (team) => {
         <div class="card-body">
           <h5 class="card-title">${intern.getName()}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${intern.getRole()}</h6>
-         <div class ="card-body" 
+         <div class ="card-body">
          <ul> 
          <li>${intern.id}</li>
          <li> ${intern.email}</li>
