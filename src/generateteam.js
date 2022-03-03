@@ -14,7 +14,6 @@ const generateTeam = (team) => {
          </div>
         </div>
       </div>
-
         `
     }
     const generateEngineer = (engineer) => {

@@ -10,11 +10,12 @@ header {
     font-weight: bolder;
 }
 
-main {
+.card-body {
     display: flex;
+    background-color: cyan;
     flex-wrap: wrap;
     margin: 10px;
     justify-content: left;
-    font-size: 2em;
+    font-size: .8em;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
